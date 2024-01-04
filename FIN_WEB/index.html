@@ -84,9 +84,9 @@
     </div>
 
     <div class="flex bg-red-600 p-4 rounded-sm mt-5 w-10/12 justify-center">
-      <form action="" method="post">
+      <form id="formDespesa" action="" method="post">
         <label class="text-white font-nunito font-bold" for="">Valor:</label>
-        <input class="mx-2" type="number" id="valor">
+        <input class="mx-2" type="number" id="valor" name="valor">
         <label class="text-white font-nunito font-bold" for="">Tipo:</label>
         <select class="mx-3" name="tipo" id="tipo" required>
           <option value="contas">Contas</option>
@@ -101,14 +101,15 @@
           <option value="outros">Outros</option>
         </select>
         <label class="text-white font-nunito font-bold" for="">Descrição:</label>
-        <input class="mx-2" type="text" id="Descrição">
+        <input class="mx-2" type="text" id="Descrição" name="descricao">
         <label class="text-white font-nunito font-bold" for="">Data:</label>
-        <input class="mx-2" type="date" id="date">
-        <button class="ml-2 text-white font-nunito font-bold bg-finYellow-0 p-2 rounded-sm" type="submit">Adicionar</button>
+        <input class="mx-2" type="date" id="date" name="date">
+        <button class="ml-2 text-white font-nunito font-bold bg-finYellow-0 p-2 rounded-sm" type="submit" onclick="enviarDespesa()">Adicionar</button>
 
       </form>
     </div>
   </section>
 
+  <script src="javascript/main.js"></script>
 </body>
 </html>
