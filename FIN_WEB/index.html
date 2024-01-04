@@ -12,56 +12,8 @@
   <a class="text-finGreen-0 font-nunito font-bold text-xl mt-3 ml-5" href="">Despesas</a>
 </header>
 <body class="bg-white">
-  <section class="flex flex-col items-center text-center">
-    <h1 class="mt-20 mb-5 font-nunito text-finGreen-0 font-bold text-5xl">Entrada/Saída</h1>
-    <div class="flex bg-green-600 p-4 rounded-sm mt-5 w-10/12  justify-center">
-      <form action="" method="post">
-        <label class="text-white font-nunito font-bold" for="">Valor:</label>
-        <input class="mx-2" type="number" id="valor">
-        <label class="text-white font-nunito font-bold" for="">Tipo:</label>
-        <select class="mx-3" name="tipo" id="tipo" required>
-          <option value="contas">Contas</option>
-          <option value="dizimo">Dizimo</option>
-          <option value="jogos">Jogos</option>
-          <option value="roupas">Roupas</option>
-          <option value="assinaturas">Assinaturas</option>
-          <option value="presentes">Presentes</option>
-          <option value="eletrônicos">Eletrônicos</option>
-          <option value="lazer">Lazer</option>
-          <option value="Transporte">Transporte</option>
-          <option value="outros">Outros</option>
-        </select>
-        <label class="text-white font-nunito font-bold" for="">Descrição:</label>
-        <input class="mx-2" type="text" id="Descrição">
-        <label class="text-white font-nunito font-bold" for="">Data:</label>
-        <input class="mx-2" type="date" id="date">
-        <button class="ml-2 text-white font-nunito font-bold bg-finYellow-0 p-2 rounded-sm" type="submit">Adicionar</button>
-      </form>
-    </div>
 
-    <div class="flex bg-red-600 p-4 rounded-sm mt-5 w-10/12 justify-center">
-      <form action="" method="post">
-        <label class="text-white font-nunito font-bold" for="">Valor:</label>
-        <input class="mx-2" type="number" id="valor">
-        <label class="text-white font-nunito font-bold" for="">Tipo:</label>
-        <select class="mx-3" name="tipo" id="tipo" required>
-          <option value="salario">Salário</option>
-          <option value="bonus">Bonus</option>
-          <option value="premios">Prêmios</option>
-          <option value="presentes">Presentes</option>
-          <option value="outros">Outros</option>
-        </select>
-        <label class="text-white font-nunito font-bold" for="">Descrição:</label>
-        <input class="mx-2" type="text" id="Descrição">
-        <label class="text-white font-nunito font-bold" for="">Data:</label>
-        <input class="mx-2" type="date" id="date">
-        <button class="ml-2 text-white font-nunito font-bold bg-finYellow-0 p-2 rounded-sm" type="submit">Adicionar</button>
-
-      </form>
-    </div>
-  </section>
-
-  <section class="flex flex-col items-start mt-20 py-4 bg-finYellow-0">
+  <section class="flex flex-col items-start mt-10 py-4 bg-finYellow-0">
 
     <h1 class="mt-10 self-center text-6xl font-nunito font-bold text-white">Como vai o seu 2024?</h1>
 
@@ -108,5 +60,55 @@
       <h1 class="text-6xl ml-3 font-nunito font-bold text-blue-950">R$1.100,00</h1>
     </div>
   </section>
+
+  <section class="flex flex-col mb-20 items-center text-center">
+    <h1 class="mt-20 mb-5 font-nunito text-finGreen-0 font-bold text-5xl">Entrada/Saída</h1>
+    <div class="flex bg-green-600 p-4 rounded-sm mt-5 w-10/12  justify-center">
+      <form action="" method="post">
+        <label class="text-white font-nunito font-bold" for="">Valor:</label>
+        <input class="mx-2" type="number" id="valor">
+        <label class="text-white font-nunito font-bold" for="">Tipo:</label>
+        <select class="mx-3" name="tipo" id="tipo" required>
+          <option value="salario">Salário</option>
+          <option value="bonus">Bonus</option>
+          <option value="premios">Prêmios</option>
+          <option value="presentes">Presentes</option>
+          <option value="outros">Outros</option>
+        </select>
+        <label class="text-white font-nunito font-bold" for="">Descrição:</label>
+        <input class="mx-2" type="text" id="Descrição">
+        <label class="text-white font-nunito font-bold" for="">Data:</label>
+        <input class="mx-2" type="date" id="date">
+        <button class="ml-2 text-white font-nunito font-bold bg-finYellow-0 p-2 rounded-sm" type="submit">Adicionar</button>
+      </form>
+    </div>
+
+    <div class="flex bg-red-600 p-4 rounded-sm mt-5 w-10/12 justify-center">
+      <form action="" method="post">
+        <label class="text-white font-nunito font-bold" for="">Valor:</label>
+        <input class="mx-2" type="number" id="valor">
+        <label class="text-white font-nunito font-bold" for="">Tipo:</label>
+        <select class="mx-3" name="tipo" id="tipo" required>
+          <option value="contas">Contas</option>
+          <option value="dizimo">Dízimo</option>
+          <option value="jogos">Jogos</option>
+          <option value="roupas">Roupas</option>
+          <option value="assinaturas">Assinaturas</option>
+          <option value="presentes">Presentes</option>
+          <option value="eletrônicos">Eletrônicos</option>
+          <option value="lazer">Lazer</option>
+          <option value="Transporte">Transporte</option>
+          <option value="outros">Outros</option>
+        </select>
+        <label class="text-white font-nunito font-bold" for="">Descrição:</label>
+        <input class="mx-2" type="text" id="Descrição">
+        <label class="text-white font-nunito font-bold" for="">Data:</label>
+        <input class="mx-2" type="date" id="date">
+        <button class="ml-2 text-white font-nunito font-bold bg-finYellow-0 p-2 rounded-sm" type="submit">Adicionar</button>
+
+      </form>
+    </div>
+  </section>
+
 </body>
 </html>
