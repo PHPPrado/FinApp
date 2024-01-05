@@ -6,64 +6,31 @@
   <link href="dist/output.css" rel="stylesheet">
 
 </head>
-<header class="bg-finYellow-0 p-2 flex">
-  <img class="w-14 rounded-lg" src="images/FIN_Logo.png" alt="">
-  <a class="text-finGreen-0 font-nunito font-bold text-xl mt-3 ml-5" href="">Home</a>
-  <a class="text-finGreen-0 font-nunito font-bold text-xl mt-3 ml-5" href="">Renda</a>
-  <a class="text-finGreen-0 font-nunito font-bold text-xl mt-3 ml-5" href="">Despesas</a>
+<header class="bg-white p-2 flex border-b-2 border-black">
+  <img class="w-28 mt-2 rounded-lg" src="images/FIN_LogoNew.png" alt="">
+  <a class="text-black font-nunito font-bold text-xl mt-4 ml-2" href="">Home</a>
+  <a class="text-black font-nunito font-bold text-xl mt-4 ml-5" href="">Renda</a>
+  <a class="text-black font-nunito font-bold text-xl mt-4 ml-5" href="">Despesas</a>
 </header>
 <body class="bg-white">
 
-  <section class="flex flex-col items-start mt-10 py-4 bg-finYellow-0">
+  <section class="items-start mt-0">
 
-    <h1 class="mt-10 self-center text-6xl font-nunito font-bold text-white">Como vai o seu 2024?</h1>
-
-    <div class="flex flex-row mt-10 ml-24 w-auto">
-      <h1 class="text-6xl font-nunito font-bold text-white">Conta:</h1>
-      <h1 class="text-6xl ml-3 font-nunito font-bold text-green-600">R$24.660,07</h1>
+    <div class="flex justify-center pb-2 mb-0 border-b-2 border-black mt-2">
+      <h1 class="text-2xl font-nunito font-bold text-black ml-2">Conta:</h1>
+      <h1 class="text-2xl ml-3 font-nunito font-bold text-green-600">R$24.660,07</h1>
+      <h1 class="text-2xl font-nunito font-bold text-black ml-4">Investidos:</h1>
+      <h1 class="text-2xl ml-3 font-nunito font-bold text-blue-950">R$16.770,00</h1>
+      <h1 class="text-2xl font-nunito font-bold text-black ml-4">Despesas:</h1>
+      <h1 class="text-2xl ml-3 font-nunito font-bold text-red-600">R$14.469,30</h1>
+      <h1 class="text-2xl font-nunito font-bold text-black ml-4">Total:</h1>
+      <h1 class="text-2xl ml-3 font-nunito font-bold text-green-600">R$41.430,07</h1>
     </div>
 
-    <div class="flex flex-row mt-10 mb-20 ml-24 w-auto">
-      <h1 class="text-6xl font-nunito font-bold text-white">Total:</h1>
-      <h1 class="text-6xl ml-3 font-nunito font-bold text-green-600">R$41.430,07</h1>
-    </div>
-
-
-    <div class="bg-white w-full h-10"></div>
-
-    <h1 class="mt-10 self-center text-6xl font-nunito font-bold text-white">Entradas e saídas de 2024</h1>
-
-    <div class="flex flex-row mt-10 ml-24 w-auto">
-      <h1 class="text-6xl font-nunito font-bold text-white">Despesas:</h1>
-      <h1 class="text-6xl ml-3 font-nunito font-bold text-red-600">R$14.469,30</h1>
-    </div>
-    <div class="flex flex-row mt-10 ml-24 w-auto">
-      <h1 class="text-6xl font-nunito font-bold text-white">Investidos:</h1>
-      <h1 class="text-6xl ml-3 font-nunito font-bold text-blue-950">R$16.770,00</h1>
-    </div>
-    <div class="flex flex-row mt-10 mb-10 ml-24 w-auto">
-      <h1 class="text-6xl font-nunito font-bold text-white">Renda:</h1>
-      <h1 class="text-6xl ml-3 font-nunito font-bold text-green-600">R$55.900,00</h1>
-    </div>
-
-
-
-    <div class="bg-white w-full h-10"></div>
-    <h1 class="mt-10 self-center text-6xl font-nunito font-bold text-white">Dados fixos</h1>
-
-    <div class="flex flex-row mt-10 ml-24 w-auto">
-      <h1 class="text-6xl font-nunito font-bold text-white">Salário:</h1>
-      <h1 class="text-6xl ml-3 font-nunito font-bold text-blue-950">R$4.300,00</h1>
-    </div>
-    
-    <div class="flex flex-row mt-10 mb-10 ml-24 w-auto">
-      <h1 class="text-6xl font-nunito font-bold text-white">Aluguel:</h1>
-      <h1 class="text-6xl ml-3 font-nunito font-bold text-blue-950">R$1.100,00</h1>
-    </div>
   </section>
 
-  <section class="flex flex-col mb-20 items-center text-center">
-    <h1 class="mt-20 mb-5 font-nunito text-finGreen-0 font-bold text-5xl">Entrada/Saída</h1>
+  <section class="flex flex-col my-10 items-center text-center">
+    <h1 class="mb-5 font-nunito text-finGreen-0 font-bold text-5xl">Entrada/Saída</h1>
     <div class="flex bg-green-600 p-4 rounded-sm mt-5 w-10/12 justify-center">
       <form id="formRenda">
         <label class="text-white font-nunito font-bold" for="">Valor:</label>
@@ -106,9 +73,42 @@
         <label class="text-white font-nunito font-bold" for="">Data:</label>
         <input class="mx-2" type="date" id="date" name="date">
         <button class="ml-2 text-white font-nunito font-bold bg-finYellow-0 p-2 rounded-sm" type="button" onclick="enviarDespesa()">Adicionar</button>
-
       </form>
     </div>
+  </section>
+
+  <section class="flex justify-center my-20 ">
+
+    <table class="table-fixed border-separate border-spacing-x-32 border-spacing-y-4 border-2 border-black rounded-sm">
+      <thead>
+        <tr>
+          <th>Valor</th>
+          <th>Tipo</th>
+          <th>Descrição</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="font-nunito" >R$3400,00</td>
+          <td class="font-nunito" >Bônus</td>
+          <td class="font-nunito" >fiz hora extra</td>
+          <td class="font-nunito" >05/01/2024</td>
+        </tr>
+        <tr>
+          <td class="font-nunito" >R$3400,00</td>
+          <td class="font-nunito" >Bônus</td>
+          <td class="font-nunito" >fiz hora extra</td>
+          <td class="font-nunito" >05/01/2024</td>
+        </tr>
+        <tr>
+          <td class="font-nunito" >R$3400,00</td>
+          <td class="font-nunito" >Bônus</td>
+          <td class="font-nunito" >fiz hora extra</td>
+          <td class="font-nunito" >05/01/2024</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <script src="javascript/renda.js" defer></script>
