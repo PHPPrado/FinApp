@@ -18,12 +18,14 @@ public class DespesaController {
     @Autowired
     DespesaRepository despesasRepository;
 
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/all")
     public List<Despesa> getAllDespesas(){
         List<Despesa> dados = despesasRepository.findAll();
         return dados;
     }
 
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/adicionar")
     public ResponseEntity<Despesa> adicionar(@Valid @RequestBody Despesa despesa, UriComponentsBuilder uriBuilder){
         despesasRepository.save(despesa);

@@ -20,12 +20,14 @@ public class RendaController {
     RendaRepository rendaRepository;
 
 
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/all")
     public List<Renda> getAllRenda(){
         List<Renda> dados = rendaRepository.findAll();
         return dados;
     }
 
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping(value = "/adicionar")
     @Transactional
     public ResponseEntity<Renda> adicionar(@Valid @RequestBody Renda renda, UriComponentsBuilder uriBuilder){
