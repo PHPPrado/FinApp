@@ -1,6 +1,7 @@
 let rendas = [];
 var adicionarUrlRenda = 'http://localhost:8080/renda/adicionar';
 var getAllUrlRenda = 'http://localhost:8080/renda/all';
+const formRenda2 = document.querySelector('#formRenda');
 
 function enviarRenda() {
     var url = adicionarUrlRenda;
@@ -26,6 +27,8 @@ function enviarRenda() {
         if (!response.ok) {
             throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
         }
+
+        formRenda2.classList.toggle('hidden');
         alert("Dados enviados com sucesso!");
         return response.json();
         

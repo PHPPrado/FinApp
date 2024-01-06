@@ -25,7 +25,7 @@ function enviarDespesa() {
         if (!response.ok) {
             throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
         }
-        alert("DadosDespesa enviados com sucesso!");
+        alert("Dados enviados com sucesso!");
         return response.json();
         
     })
