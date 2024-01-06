@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {      
       fontFamily:{
-      nunito: ['Nunito', 'sans-serif']
+      nunito: ['Nunito', 'sans-serif'],
+      league: ['League Spartan', 'nunito']
       },
       colors:{
         finYellow: ['#F1C93B'],

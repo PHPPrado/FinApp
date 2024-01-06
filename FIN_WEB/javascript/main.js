@@ -9,7 +9,11 @@ function gerarFormulario(){
 
 btnAddRenda.addEventListener('click', ()=>{
     formRenda.classList.toggle('hidden');
+    formDespesa.classList.add('hidden');
+
 })
 btnAddDespesa.addEventListener('click', ()=>{
     formDespesa.classList.toggle('hidden');
+    formRenda.classList.add('hidden');
+
 })
