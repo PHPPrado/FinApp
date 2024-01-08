@@ -38,4 +38,12 @@ public class RendaController {
         var uri = uriBuilder.path("/{id}").buildAndExpand(renda.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
+
+
+    @PutMapping(value = "/editar/{id}")
+    public ResponseEntity editar(){
+
+    }
+
+
 }

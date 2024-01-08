@@ -2,6 +2,7 @@ package com.fin.fin_api.controller;
 
 import com.fin.fin_api.domain.despesas.Despesa;
 import com.fin.fin_api.domain.despesas.DespesaRepository;
+import com.fin.fin_api.dto.DespesaDTO;
 import com.fin.fin_api.service.DespesaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,11 +38,10 @@ public class DespesaController {
     }
 
 
-//    @PutMapping("/editar")
-//    public ResponseEntity<Despesa> editar(){
-//
-//
-//    }
+    @PutMapping("/editar/{id}")
+    public ResponseEntity editar(@PathVariable(value = "id") int id, @RequestBody @Valid DespesaDTO despesaDTO){
+        return despesaService.editarDespesa(id, despesaDTO);
+    }
 
     @DeleteMapping("/deletar/{id}")
     public ResponseEntity deletar(@PathVariable int id) {

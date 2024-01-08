@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -24,7 +25,7 @@ public class Despesa {
     @NotNull
     private LocalDate data;
 
-    @NotNull
+    @NotBlank(message = "{tipo.not-blank}")
     private String tipo;
 
     private String descricao;
