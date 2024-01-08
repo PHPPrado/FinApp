@@ -2,6 +2,7 @@ package com.fin.fin_api.controller;
 
 import com.fin.fin_api.domain.despesas.Despesa;
 import com.fin.fin_api.domain.despesas.DespesaRepository;
+import com.fin.fin_api.service.DespesaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,9 @@ public class DespesaController {
     @Autowired
     DespesaRepository despesasRepository;
 
+    @Autowired
+    DespesaService despesaService;
+
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/all")
     public List<Despesa> getAllDespesas(){
@@ -28,7 +32,7 @@ public class DespesaController {
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/adicionar")
     public ResponseEntity<Despesa> adicionar(@Valid @RequestBody Despesa despesa, UriComponentsBuilder uriBuilder){
-        despesasRepository.save(despesa);
+        Despesa novaDespesa = despesaService.salvarDespesa(despesa);
         var uri = uriBuilder.path("/{id}").buildAndExpand(despesa.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }

@@ -2,6 +2,7 @@ package com.fin.fin_api.controller;
 
 import com.fin.fin_api.domain.renda.Renda;
 import com.fin.fin_api.domain.renda.RendaRepository;
+import com.fin.fin_api.service.RendaService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class RendaController {
     @Autowired
     RendaRepository rendaRepository;
 
+    @Autowired
+    RendaService rendaService;
+
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/all")
@@ -31,7 +35,7 @@ public class RendaController {
     @PostMapping(value = "/adicionar")
     @Transactional
     public ResponseEntity<Renda> adicionar(@Valid @RequestBody Renda renda, UriComponentsBuilder uriBuilder){
-        rendaRepository.save(renda);
+        Renda novaRenda = rendaService.salvarRenda(renda);
         var uri = uriBuilder.path("/{id}").buildAndExpand(renda.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
