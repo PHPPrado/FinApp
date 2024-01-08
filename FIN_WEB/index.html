@@ -75,10 +75,12 @@
           </a>
         </div>
 
+        <span id="campoError" class="hidden Error-message text-white text-xl font-league bg-red-600 w-fit self-center p-2 rounded-lg"></span>
+
         <div class="flex p-4 w-fit justify-center m-auto my-0">
           <form class="form hidden" id="formRenda">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Valor:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="valor" name="valor">
+            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="valor" name="valor" required>
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Tipo:</label>
             <select class="mx-3 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="tipo" required>
               <option value="salario">Salário</option>
@@ -90,15 +92,15 @@
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Descrição:</label>
             <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-48" type="text" name="descricao" id="Descrição">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Data:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-32" type="date" name="date" id="date">
-            <button class="ml-2 text-white font-league font-bold bg-green-700 p-2 rounded-sm" type="button" onclick="enviarRenda()">Adicionar</button>
+            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-32" type="date" name="date" id="date" required>
+            <button class="btnEnviarRenda ml-2 text-white font-league font-bold bg-green-700 p-2 rounded-sm" type="button" onclick="enviarRenda()">Adicionar</button>
           </form>
         </div>
 
         <div class="flex p-4 w-fit justify-center m-auto mt-0 mb-5">
           <form class="form hidden" id="formDespesa">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Valor:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="valor" name="valor">
+            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="valor" name="valor" required>
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Tipo:</label>
             <select class="mx-3 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="tipo" required>
               <option value="contas">Contas</option>
@@ -115,8 +117,9 @@
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Descrição:</label>
             <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-48" type="text" id="Descrição" name="descricao">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Data:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-32" type="date" id="date" name="date">
-            <button class="ml-2 text-white font-league font-bold bg-red-700 p-2 rounded-sm" type="button" onclick="enviarDespesa()">Adicionar</button>
+            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-32" type="date" id="date" name="date" required>
+            <button class="btnEnviarDespesa ml-2 text-white font-league font-bold bg-red-700 p-2 rounded-sm" type="button" onclick="enviarDespesa()">Adicionar</button>
+            
           </form>
         </div>
 
@@ -193,53 +196,7 @@
 
     </section>
 
-    <section class="flex flex-col my-10 m-auto text-center">
-      <h1 class="mb-5 font-league text-finGreen-0 font-bold text-5xl">Entrada/Saída</h1>
-      <div class="flex p-4 w-fit justify-center shadow-lg rounded-sm">
-        <form id="formRenda">
-          <label class="text-finGreen-0 text-xl font-league font-bold" for="">Valor:</label>
-          <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="valor" name="valor">
-          <label class="text-finGreen-0 text-xl font-league font-bold" for="">Tipo:</label>
-          <select class="mx-3 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="tipo" required>
-            <option value="salario">Salário</option>
-            <option value="bonus">Bonus</option>
-            <option value="premios">Prêmios</option>
-            <option value="presentes">Presentes</option>
-            <option value="outros">Outros</option>
-          </select>
-          <label class="text-finGreen-0 text-xl font-league font-bold" for="">Descrição:</label>
-          <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-48" type="text" name="descricao" id="Descrição">
-          <label class="text-finGreen-0 text-xl font-league font-bold" for="">Data:</label>
-          <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-32" type="date" name="date" id="date">
-          <button class="ml-2 text-white font-league font-bold bg-green-700 p-2 rounded-sm" type="button" onclick="enviarRenda()">Adicionar</button>
-        </form>
-      </div>
-
-      <div class="flex shadow-lg p-4 rounded-sm mt-5 w-fit justify-center">
-        <form id="formDespesa">
-          <label class="text-finGreen-0 text-xl font-league font-bold" for="">Valor:</label>
-          <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="valor" name="valor">
-          <label class="text-finGreen-0 text-xl font-league font-bold" for="">Tipo:</label>
-          <select class="mx-3 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="tipo" required>
-            <option value="contas">Contas</option>
-            <option value="dizimo">Dízimo</option>
-            <option value="jogos">Jogos</option>
-            <option value="roupas">Roupas</option>
-            <option value="assinaturas">Assinaturas</option>
-            <option value="presentes">Presentes</option>
-            <option value="eletrônicos">Eletrônicos</option>
-            <option value="lazer">Lazer</option>
-            <option value="Transporte">Transporte</option>
-            <option value="outros">Outros</option>
-          </select>
-          <label class="text-finGreen-0 text-xl font-league font-bold" for="">Descrição:</label>
-          <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-48" type="text" id="Descrição" name="descricao">
-          <label class="text-finGreen-0 text-xl font-league font-bold" for="">Data:</label>
-          <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-32" type="date" id="date" name="date">
-          <button class="ml-2 text-white font-league font-bold bg-red-700 p-2 rounded-sm" type="button" onclick="enviarDespesa()">Adicionar</button>
-        </form>
-      </div>
-    </section>
+  
     
 
 

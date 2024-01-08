@@ -13,6 +13,7 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin(origins = {"http://127.0.0.1:5500", "http://localhost:5500"})
 @RequestMapping("/despesa")
 public class DespesaController {
 
@@ -22,18 +23,29 @@ public class DespesaController {
     @Autowired
     DespesaService despesaService;
 
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/all")
     public List<Despesa> getAllDespesas(){
         List<Despesa> dados = despesasRepository.findAll();
         return dados;
     }
 
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/adicionar")
     public ResponseEntity<Despesa> adicionar(@Valid @RequestBody Despesa despesa, UriComponentsBuilder uriBuilder){
         Despesa novaDespesa = despesaService.salvarDespesa(despesa);
         var uri = uriBuilder.path("/{id}").buildAndExpand(despesa.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
+
+
+//    @PutMapping("/editar")
+//    public ResponseEntity<Despesa> editar(){
+//
+//
+//    }
+
+    @DeleteMapping("/deletar/{id}")
+    public ResponseEntity deletar(@PathVariable int id) {
+        return despesaService.deletarDespesa(id);
+    }
+
 }

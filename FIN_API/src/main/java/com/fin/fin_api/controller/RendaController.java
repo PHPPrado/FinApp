@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
-
+@CrossOrigin(origins = {"http://127.0.0.1:5500", "http://localhost:5500"})
 @RestController
 @RequestMapping("/renda")
 public class RendaController {
@@ -31,7 +31,6 @@ public class RendaController {
         return dados;
     }
 
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping(value = "/adicionar")
     @Transactional
     public ResponseEntity<Renda> adicionar(@Valid @RequestBody Renda renda, UriComponentsBuilder uriBuilder){
