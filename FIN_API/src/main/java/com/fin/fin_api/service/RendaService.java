@@ -15,6 +15,7 @@ import java.util.Optional;
 @Service
 public class RendaService {
 
+
     @Autowired
     RendaRepository rendaRepository;
 
@@ -22,6 +23,7 @@ public class RendaService {
         return rendaRepository.save(renda);
     }
 
+    //Verifica se o id existe e dispara erro caso seja um valor inválido no banco
     public ResponseEntity editarRenda(int id, @Valid RendaDTO rendaDTO){
         Optional<Renda> optionalRenda = Optional.ofNullable(rendaRepository.findById(id));
 
