@@ -11,8 +11,8 @@ public class TotalRendaVariavelService {
     @Autowired
     RendaVariavelRepository rendaVariavelRepository;
 
-    public void verificarExistenciaBD  {
-        
+    public void verificarExistenciaBD() {
+
     }
 
     public ResponseEntity adicionarRendaVariavel() {
