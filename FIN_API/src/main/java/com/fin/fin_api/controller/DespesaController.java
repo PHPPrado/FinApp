@@ -44,7 +44,7 @@ public class DespesaController {
     }
 
     @DeleteMapping("/deletar/{id}")
-    public ResponseEntity deletar(@PathVariable int id) {
+    public ResponseEntity deletar(@PathVariable(value = "id") int id) {
         return despesaService.deletarDespesa(id);
     }
 

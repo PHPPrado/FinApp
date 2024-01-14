@@ -2,6 +2,8 @@ package com.fin.fin_api.controller;
 
 import com.fin.fin_api.domain.renda.Renda;
 import com.fin.fin_api.domain.renda.RendaRepository;
+import com.fin.fin_api.dto.DespesaDTO;
+import com.fin.fin_api.dto.RendaDTO;
 import com.fin.fin_api.service.RendaService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -24,7 +26,7 @@ public class RendaController {
     RendaService rendaService;
 
 
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+//    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping("/all")
     public List<Renda> getAllRenda(){
         List<Renda> dados = rendaRepository.findAll();
@@ -41,8 +43,13 @@ public class RendaController {
 
 
     @PutMapping(value = "/editar/{id}")
-    public ResponseEntity editar(){
+    public ResponseEntity editar(@PathVariable(value = "id") int id, @RequestBody @Valid RendaDTO rendaDTO){
+        return rendaService.editarRenda(id, rendaDTO);
+    }
 
+    @DeleteMapping("/deletar/{id}")
+    public ResponseEntity deletar(@PathVariable(value = "id") int id){
+        return rendaService.deletarRenda(id);
     }
 
 

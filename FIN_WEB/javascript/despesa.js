@@ -1,4 +1,4 @@
-let despesas = [];
+var despesas = [];
 var adicionarUrlDespesa = 'http://localhost:8080/despesa/adicionar';
 var getAllUrlDespesa = 'http://localhost:8080/despesa/all';
 var btnEnviarDespesa = document.querySelector('.btnEnviarDespesa');
@@ -51,6 +51,7 @@ function enviarDespesa() {
             throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
         }
         alert("Dados enviados com sucesso!");
+        popularTabela();
         return response.json();
         
     })
@@ -131,5 +132,37 @@ function maioresDespesas(){
         console.error('Erro na requisição:', error);
     });
 }
+
+
+function getDespesas(){
+
+    var url = getAllUrlDespesa;
+
+    fetch(url,{
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response =>{
+        if (!response.ok) {
+            throw new Error(`Erro de rede! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+    .then(data => {
+
+        despesas = data;
+        console.log(despesas);
+    })
+    .catch(error => {
+        console.error('Erro na requisição:', error);
+    });
+
+}
+
+
+
+
 
 maioresDespesas()

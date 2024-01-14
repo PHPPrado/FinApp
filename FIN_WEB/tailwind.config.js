@@ -10,6 +10,7 @@ module.exports = {
       colors:{
         finYellow: ['#F1C93B'],
         finGreen: ['#1A5D1A'],
+        finColor: ['#4ACACC'],
       } 
     },
   },

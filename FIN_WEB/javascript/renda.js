@@ -1,4 +1,4 @@
-let rendas = [];
+var renda = [];
 var adicionarUrlRenda = 'http://localhost:8080/renda/adicionar';
 var getAllUrlRenda = 'http://localhost:8080/renda/all';
 const formRenda2 = document.querySelector('#formRenda');
@@ -50,6 +50,7 @@ function enviarRenda() {
 
             formRenda2.classList.toggle('hidden');
             alert("Dados enviados com sucesso!");
+            popularTabela();
             return response.json();
             
         })
@@ -62,3 +63,30 @@ function enviarRenda() {
 
     }
 };
+
+function getRenda(){
+
+    var url = getAllUrlRenda;
+
+    fetch(url,{
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response =>{
+        if (!response.ok) {
+            throw new Error(`Erro de rede! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+    .then(data => {
+
+        renda = data;
+        console.log(renda);
+    })
+    .catch(error => {
+        console.error('Erro na requisição:', error);
+    });
+
+}

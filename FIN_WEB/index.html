@@ -83,11 +83,11 @@
             <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="valor" name="valor" required>
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Tipo:</label>
             <select class="mx-3 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="tipo" required>
-              <option value="salario">Salário</option>
-              <option value="bonus">Bonus</option>
-              <option value="premios">Prêmios</option>
+              <option value="salário">Salário</option>
+              <option value="bônus">Bonus</option>
+              <option value="prêmios">Prêmios</option>
               <option value="presentes">Presentes</option>
-              <option value="outros">Outros</option>
+              <option value="outro">Outro</option>
             </select>
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Descrição:</label>
             <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-48" type="text" name="descricao" id="Descrição">
@@ -108,7 +108,7 @@
               <option value="jogos">Jogos</option>
               <option value="roupas">Roupas</option>
               <option value="assinaturas">Assinaturas</option>
-              <option value="presentes">Presentes</option>
+              <option value="presente">Presente</option>
               <option value="eletrônicos">Eletrônicos</option>
               <option value="lazer">Lazer</option>
               <option value="Transporte">Transporte</option>
@@ -141,7 +141,7 @@
         </div>
 
         <div class="border-collapse border-black shadow-xl rounded-lg m-6 mt-2 p-4 bg-green-50">
-          <table class="w-full">
+          <table id="tabela" class="w-full">
             <thead>
               <tr>
                 <th class="font-league font-bold text-finGreen-0 text-xl">Valor</th>
@@ -151,46 +151,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="text-center font-league text-finGreen-0">R$120,00</td>
-                <td class="text-center font-league text-finGreen-0">Bônus</td>
-                <td class="text-center font-league text-finGreen-0">Ajudei um amigo</td>
-                <td class="text-center font-league text-finGreen-0">28/04/2024</td>
-              </tr>
-              <tr>
-                <td class="text-center font-league text-finGreen-0">R$3400,00</td>
-                <td class="text-center font-league text-finGreen-0">Salário</td>
-                <td class="text-center font-league text-finGreen-0"></td>
-                <td class="text-center font-league text-finGreen-0">05/01/2024</td>
-              </tr>
-              <tr>
-                <td class="text-center font-league text-finGreen-0">R$3400,00</td>
-                <td class="text-center font-league text-finGreen-0">Salário</td>
-                <td class="text-center font-league text-finGreen-0"></td>
-                <td class="text-center font-league text-finGreen-0">05/02/2024</td>
-              </tr>
-              <tr>
-                <td class="text-center font-league text-finGreen-0">R$3400,00</td>
-                <td class="text-center font-league text-finGreen-0">Salário</td>
-                <td class="text-center font-league text-finGreen-0"></td>
-                <td class="text-center font-league text-finGreen-0">05/03/2024</td>
-              </tr>
-              <tr>
-                <td class="text-center font-league text-finGreen-0">R$3400,00</td>
-                <td class="text-center font-league text-finGreen-0">Salário</td>
-                <td class="text-center font-league text-finGreen-0"></td>
-                <td class="text-center font-league text-finGreen-0">05/04/2024</td>
-              </tr>
-              <tr>
-                <td class="text-center font-league text-finGreen-0">R$3400,00</td>
-                <td class="text-center font-league text-finGreen-0">Salário</td>
-                <td class="text-center font-league text-finGreen-0"></td>
-                <td class="text-center font-league text-finGreen-0">05/05/2024</td>
-              </tr>
             </tbody>
           </table>
+          <!--<img class="rounded-lg w-1/6" src="" alt="">-->
         </div>
-
+        
 
       </section>
 
@@ -203,6 +168,7 @@
     <script src="javascript/renda.js" defer></script>
     <script src="javascript/despesa.js" defer></script>
     <script defer src="javascript/main.js" defer></script>
+    <script defer src="javascript/table.js" defer></script>
     
   </body>
 </html>
