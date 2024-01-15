@@ -16,19 +16,16 @@ import java.time.LocalDate;
 public class RegistroRendaVariavel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @NotNull
     private LocalDate data;
 
     @NotBlank
-    private String categoria;
-
-    @NotBlank
     private String nomeAtivo;
 
-    @NotBlank
+    @NotBlank (message = "Selecione o tipo compra ou venda")
     private String tipo;
 
     @NotNull

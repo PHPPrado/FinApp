@@ -141,20 +141,35 @@
           </form>
         </div>
 
+        <div class="flex p-4 w-fit justify-center m-auto mt-0 mb-5">
+          <form class="form hidden " id="formEdit">
+            <label class="text-finGreen-0 text-xl font-league font-bold" for="">Valor:</label>
+            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="valor" name="valor" required>
+            <label class="text-finGreen-0 text-xl font-league font-bold" for="" id="valor">Tipo:</label>
+            <input class="mx-3 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="tipo" required>
+            <label class="text-finGreen-0 text-xl font-league font-bold" for="" id="descricao">Descrição:</label>
+            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-48" type="text" id="Descrição" name="descricao">
+            <label class="text-finGreen-0 text-xl font-league font-bold" for="">Data:</label>
+            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-32" type="date" id="date" name="date" required>
+            <button id="btnEditar ml-2 text-white font-league font-bold bg-red-700 p-2 rounded-sm" type="button" onclick="">Editar</button>
+          </form>
+        </div>
+
         <div class="rounded-lg shadow-xl w-fit p-2 ml-6 bg-green-50">
-          <button class="font-league text-finGreen-0 font-bold">Filtrar: <select class="font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="" id="">
-            <option value="">Janeiro</option>
-            <option value="">Fevereiro</option>
-            <option value="">Março</option>
-            <option value="">Abril</option>
-            <option value="">Maio</option>
-            <option value="">Junho</option>
-            <option value="">Julho</option>
-            <option value="">Agosto</option>
-            <option value="">Setembro</option>
-            <option value="">Outubro</option>
-            <option value="">Novembro</option>
-            <option value="">Dezembro</option>
+          <button class="font-league text-finGreen-0 font-bold">Filtrar: <select class="font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="" id="filtroMes">
+            <option value="0">Todos</option>
+            <option value="1">Janeiro</option>
+            <option value="2">Fevereiro</option>
+            <option value="3">Março</option>
+            <option value="4">Abril</option>
+            <option value="5">Maio</option>
+            <option value="6">Junho</option>
+            <option value="7">Julho</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
           </select></button>
         </div>
 

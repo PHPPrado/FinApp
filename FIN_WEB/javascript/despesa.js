@@ -51,7 +51,7 @@ function enviarDespesa() {
             throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
         }
         alert("Dados enviados com sucesso!");
-        popularTabela();
+        conjunto();
         return response.json();
         
     })

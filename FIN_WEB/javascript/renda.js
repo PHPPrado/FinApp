@@ -50,7 +50,7 @@ function enviarRenda() {
 
             formRenda2.classList.toggle('hidden');
             alert("Dados enviados com sucesso!");
-            popularTabela();
+            conjunto();
             return response.json();
             
         })

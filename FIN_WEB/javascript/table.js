@@ -3,14 +3,52 @@
 var getAllRenda = 'http://localhost:8080/renda/all';
 var getAllDespesa = 'http://localhost:8080/despesa/all';
 
+var mes = document.getElementById('filtroMes').value;
 
-async function popularTabela() {
-    try {
+async function conjunto(){
+
         await getDespesas();
         await getRenda();
 
         var dadosConjunto = renda.concat(despesas);
         dadosConjunto.sort((a, b) => new Date(b.data) - new Date(a.data));
+
+        popularTabela(dadosConjunto);
+}
+
+
+async function popularTabela(dadosConjunto) {
+    try {
+
+
+        document.getElementById('filtroMes').addEventListener('change', function () {
+            
+            getDespesas();
+            getRenda();
+    
+            dadosConjunto = renda.concat(despesas);
+            dadosConjunto.sort((a, b) => new Date(b.data) - new Date(a.data));
+
+
+            var mesSelecionado = parseInt(this.value);
+            console.log(mesSelecionado);
+
+            if(mesSelecionado == 0){
+                conjunto()
+            }
+        
+            var dadosMes = dadosConjunto.filter(function (dado) {
+                var mesDado = new Date(dado.data).getMonth() + 1;
+                return mesDado === mesSelecionado;
+            });
+        
+            dadosMes.sort((a, b) => new Date(b.data).getDate() - new Date(a.data).getDate());
+            dadosConjunto = dadosMes;
+        
+            popularTabela(dadosConjunto);
+        });
+        
+        
 
         console.log('Dados:', dadosConjunto);
 
@@ -43,7 +81,7 @@ async function popularTabela() {
             var celulaExcluir = linha.insertCell(5);
 
             // Adicionar botões aos seus respectivos registros
-            celulaEditar.innerHTML = '<button class="hover:scale-95 transition duration-500" onclick="editarRegistro(' + dadosConjunto[i].id + ', \'' + dadosConjunto[i].tipo + '\')"> <img class="w-8" src="images/editar.png"> </button>';
+            celulaEditar.innerHTML = '<button class="hover:scale-95 transition duration-500" onclick="abrirModalEdicao(' + dadosConjunto[i].id + ', \'' + dadosConjunto[i].tipo + '\', \'' + dadosConjunto[i].descricao + '\', ' + dadosConjunto[i].valor + ', \'' + dadosConjunto[i].data + '\')"> <img class="w-8" src="images/editar.png"> </button>';
             celulaExcluir.innerHTML = '<button class="hover:scale-95 transition duration-500" onclick="excluirRegistro(' + dadosConjunto[i].id + ', \'' + dadosConjunto[i].tipo + '\')"> <img class="w-8" src="images/remover.png"> </button>';
             
 
@@ -167,8 +205,76 @@ async function excluirRegistro(id, tipo){
 }
 
 
+function abrirModalEdicao(id, tipo, descricao, valor, data) {
+    var formEdit = document.getElementById('formEdit');
 
+    document.getElementById('valor').value = valor;
+    document.getElementById('tipo').value = tipo;
+    document.getElementById('descricao').value = descricao;
+    document.getElementById('date').value = data;
+
+
+
+
+    formEdit.classList.remove('hidden');
+
+    document.getElementById('btnEditar').onclick = async function () {
+        var novoValor = document.getElementById('valor').value;
+        var novoTipo = document.getElementById('tipo').value;
+        var novaDescricao = document.getElementById('descricao').value;
+        var novaData = document.getElementById('date').value;
+
+        await editarRegistro(id, novoTipo, novaDescricao, novoValor, novaData);
+
+        formEdit.classList.add('hidden');
+    };
+}
+
+function editarRegistro(id, tipo, descricao, valor, data){
+
+    
+    if(tipo == 'salário' || tipo == 'bônus' || tipo == 'prêmios' || tipo == 'presentes' || tipo == 'outro'){
+        var url = `http://localhost:8080/renda/editar/${id}`;
+    } else{
+        var url = `http://localhost:8080/despesa/editar/${id}`;
+    }
+
+    console.log(formEdit);
+    var dadosEditar={
+        valor: formEdit.valor.value,
+        data: formEdit.date.value,
+        tipo: formEdit.tipo.value,
+        descricao: formEdit.descricao.value
+    };
+
+    fetch(url,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dadosEditar),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
+        }
+
+        //formEdit.classList.toggle('hidden');
+        alert("Dados editados com sucesso!");
+        conjunto();
+        return response.json();
+        
+    })
+    .then(data => {
+        console.log('Dados editados com sucesso:', data);
+    })
+    .catch(error => {
+        console.error('Erro ao editar dados:', error);
+    });
+
+
+}
 
 
 // Chame a função principal
-popularTabela();
+conjunto();
