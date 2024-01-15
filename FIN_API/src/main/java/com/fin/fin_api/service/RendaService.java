@@ -42,10 +42,10 @@ public class RendaService {
         Optional<Renda> optionalRenda = Optional.ofNullable(rendaRepository.findById(id));
 
         if(optionalRenda.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Despesa não encontrada");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Renda não encontrada");
         } else{
             rendaRepository.deleteById(id);
-            return ResponseEntity.status(HttpStatus.OK).body("Despesa deletada com sucesso");
+            return ResponseEntity.status(HttpStatus.OK).body("Renda deletada com sucesso");
         }
     }
 

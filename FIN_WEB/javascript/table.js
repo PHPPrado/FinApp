@@ -1,3 +1,5 @@
+//const axios = require('axios');
+
 var getAllRenda = 'http://localhost:8080/renda/all';
 var getAllDespesa = 'http://localhost:8080/despesa/all';
 
@@ -35,6 +37,15 @@ async function popularTabela() {
             [celulaValor, celulaTipo, celulaDescricao, celulaData].forEach(celula => {
                 celula.classList.add('text-center', 'font-league');
             });
+            
+            // Criar botões de Editar e Excluir
+            var celulaEditar = linha.insertCell(4);
+            var celulaExcluir = linha.insertCell(5);
+
+            // Adicionar botões aos seus respectivos registros
+            celulaEditar.innerHTML = '<button class="hover:scale-95 transition duration-500" onclick="editarRegistro(' + dadosConjunto[i].id + ', \'' + dadosConjunto[i].tipo + '\')"> <img class="w-8" src="images/editar.png"> </button>';
+            celulaExcluir.innerHTML = '<button class="hover:scale-95 transition duration-500" onclick="excluirRegistro(' + dadosConjunto[i].id + ', \'' + dadosConjunto[i].tipo + '\')"> <img class="w-8" src="images/remover.png"> </button>';
+            
 
             // Ajuste de estilo diretamente usando a propriedade style
             if (
@@ -110,6 +121,54 @@ function formatarData(data) {
     const ano = dataObj.getFullYear();
     return `${dia}/${mes}/${ano}`;
 }
+
+
+
+async function excluirRegistro(id, tipo){
+
+    console.log('Excluir registro com ID:', id);
+    console.log(tipo)
+
+
+    var modal = document.getElementById('popup-modal');
+    modal.classList.remove('hidden');
+    var confirmBtn = document.getElementById('confirmBtn');
+    confirmBtn.onclick = async function () {
+
+        if(tipo == 'salário' || tipo == 'bônus' || tipo == 'prêmios' || tipo == 'presentes' || tipo == 'outro'){
+            var url = `http://localhost:8080/renda/deletar/${id}`;
+        } else{
+            var url = `http://localhost:8080/despesa/deletar/${id}`;
+        }
+
+        try {
+            const response = await fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error(`Erro ao excluir registro! Status: ${response.status}`);
+            }
+
+            console.log('Registro excluído com sucesso!');
+            modal.classList.add('hidden');
+            popularTabela();
+        } catch (error) {
+            console.error('Erro na exclusão do registro:', error);
+        }
+    }
+
+    modal.onclick = cancelBtn.onclick = function () {
+        modal.classList.add('hidden');
+    };
+}
+
+
+
+
 
 // Chame a função principal
 popularTabela();

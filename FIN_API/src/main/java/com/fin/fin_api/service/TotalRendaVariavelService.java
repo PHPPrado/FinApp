@@ -1,5 +1,6 @@
 package com.fin.fin_api.service;
 
+import com.fin.fin_api.domain.investimento.rendavariavel.RegistroRendaVariavel;
 import com.fin.fin_api.domain.investimento.rendavariavel.RendaVariavelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,16 +12,17 @@ public class TotalRendaVariavelService {
     @Autowired
     RendaVariavelRepository rendaVariavelRepository;
 
-    public void verificarExistenciaBD() {
+//    public void verificarExistenciaBD() {
+//
+//    }
 
-    }
+//    public ResponseEntity adicionarRendaVariavel(RegistroRendaVariavel registroRendaVariavel) {
+//        rendaVariavelRepository.save();
+//
+//    }
 
-    public ResponseEntity adicionarRendaVariavel() {
-
-    }
-
-    public ResponseEntity editarRendaVariavel(){
-
-    }
+//    public ResponseEntity editarRendaVariavel(){
+//
+//    }
 
 }

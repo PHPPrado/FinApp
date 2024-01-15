@@ -13,7 +13,7 @@ import java.time.LocalDate;
 
 @Entity
 @Data
-public class RendaVariavel {
+public class RegistroRendaVariavel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +26,7 @@ public class RendaVariavel {
     private String categoria;
 
     @NotBlank
-    private String nomeDoAtivo;
+    private String nomeAtivo;
 
     @NotBlank
     private String tipo;
