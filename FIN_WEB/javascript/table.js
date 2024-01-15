@@ -259,7 +259,6 @@ function editarRegistro(id, tipo, descricao, valor, data){
             throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
         }
 
-        //formEdit.classList.toggle('hidden');
         alert("Dados editados com sucesso!");
         conjunto();
         return response.json();
