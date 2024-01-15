@@ -6,5 +6,10 @@ Bem-vindo ao projeto de Controle Financeiro Pessoal! Este é um aplicativo deskt
 
 O projeto está atualmente em desenvolvimento nos seus estágios iniciais. Novas funcionalidades estão sendo adicionadas regularmente, e melhorias estão sendo feitas para garantir uma boa experiência de usuário.
 
-### Imagem demonstrativa (Esta imagem é apenas um conceito e não representa o projeto final)
-![Captura de tela FIN](https://github.com/PHPPrado/FIN_API_Spring/assets/104167056/7c9a2103-120a-4682-a276-163b0c1260e0)
+### Imagems demonstrativa (A interface pode mudar até a versão final)
+
+![Captura de tela FIN (1)](https://github.com/PHPPrado/FinApp/assets/104167056/1ae94221-9de9-4448-be96-93097f5ea8e9)
+
+![Captura de tela FIN (2)](https://github.com/PHPPrado/FinApp/assets/104167056/f7d58ff3-dafb-4aa0-8afb-b84051929663)
+
+
