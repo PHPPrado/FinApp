@@ -193,7 +193,7 @@ async function excluirRegistro(id, tipo){
 
             console.log('Registro excluído com sucesso!');
             modal.classList.add('hidden');
-            popularTabela();
+            conjunto();
         } catch (error) {
             console.error('Erro na exclusão do registro:', error);
         }
