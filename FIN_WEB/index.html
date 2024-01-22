@@ -8,13 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <title>FinApp</title>
   </head>
-  <header class="bg-green-600 p-2 flex shadow-xl">
+  <header class="bg-emerald-600 p-2 flex shadow-xl">
     <img class="w-2/12 rounded-lg" src="images/FinAppLogo-removebg-preview.png" alt="">
     <div class="flex justify-center w-2/3">
-      <a class="text-white font-league text-2xl self-center mt-5 hover:underline underline-offset-8" href="">Home</a>
+      <a class="text-white font-league text-2xl self-center mt-5 hover:underline underline-offset-8" href="index.html">Home</a>
       <a class="text-white font-league text-2xl self-center mt-5 hover:underline underline-offset-8 ml-24" href="">Renda</a>
       <a class="text-white font-league text-2xl self-center mt-5 hover:underline underline-offset-8 ml-24" href="">Despesas</a>
+      <a class="text-white font-league text-2xl self-center mt-5 hover:underline underline-offset-8 ml-24" href="investimentos.html">Investimentos</a>
     </div>
   </header>
   <body class="bg-slate-100">
@@ -41,13 +43,13 @@
 
       <div class="flex justify-center p-4 m-5 rounded-lg shadow-xl bg-white">
         <h1 class="text-2xl font-league font-bold text-black ml-2">Conta:</h1>
-        <h1 class="text-2xl ml-3 font-league font-bold text-green-600">R$24.660,07</h1>
+        <h1 id="valorConta" class="text-2xl ml-3 font-league font-bold text-emerald-600">R$24.660,07</h1>
         <h1 class="text-2xl font-league font-bold text-black ml-4">Investidos:</h1>
-        <h1 class="text-2xl ml-3 font-league font-bold text-blue-950">R$16.770,00</h1>
+        <h1 id="valorInvestido" class="text-2xl ml-3 font-league font-bold text-blue-950">R$16.770,00</h1>
         <h1 class="text-2xl font-league font-bold text-black ml-4">Despesas:</h1>
-        <h1 class="text-2xl ml-3 font-league font-bold text-red-600">R$14.469,30</h1>
+        <h1 id="valorDespesas" class="text-2xl ml-3 font-league font-bold text-red-600">R$14.469,30</h1>
         <h1 class="text-2xl font-league font-bold text-black ml-4">Total:</h1>
-        <h1 class="text-2xl ml-3 font-league font-bold text-green-600">R$41.430,07</h1>
+        <h1 id="valorTotal" class="text-2xl ml-3 font-league font-bold text-emerald-600">R$41.430,07</h1>
       </div>
 
     </section>
@@ -85,7 +87,7 @@
 
       <section class="flex flex-col w-full shadow-xl m-5 mt-0 rounded-lg bg-white shadow-gray-200">
         <div class="flex mt-8 mb-5 w-full">
-          <a class="btnAddRenda shadow-lg rounded-lg bg-green-600 text-white text-3xl p-4 font-league font-bold w-full text-center justify-center mx-8 flex hover:scale-95 transition hover:duration-500">
+          <a class="btnAddRenda shadow-lg rounded-lg bg-emerald-600 text-white text-3xl p-4 font-league font-bold w-full text-center justify-center mx-8 flex hover:scale-95 transition hover:duration-500">
             <button class="">Nova Renda</button>
           </a>
           <a class="btnAddDespesa shadow-lg rounded-lg bg-red-500 text-white text-3xl p-4 font-league font-bold w-full text-center justify-center mx-8 flex hover:scale-95 transition hover:duration-500">
@@ -142,16 +144,16 @@
         </div>
 
         <div class="flex p-4 w-fit justify-center m-auto mt-0 mb-5">
-          <form class="form hidden " id="formEdit">
+          <form class="form hidden" id="formEdit">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Valor:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="valor" name="valor" required>
+            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="editValor" name="valor" required>
             <label class="text-finGreen-0 text-xl font-league font-bold" for="" id="valor">Tipo:</label>
-            <input class="mx-3 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="tipo" required>
+            <input class="mx-3 w-1/12 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="editTipo" readonly required>
             <label class="text-finGreen-0 text-xl font-league font-bold" for="" id="descricao">Descrição:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-48" type="text" id="Descrição" name="descricao">
+            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-48" type="text" id="editDescricao" name="descricao">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Data:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-32" type="date" id="date" name="date" required>
-            <button id="btnEditar ml-2 text-white font-league font-bold bg-red-700 p-2 rounded-sm" type="button" onclick="">Editar</button>
+            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-32" type="date" id="editDate" name="date" required>
+            <button id="btnEditar" class="ml-2 text-white font-league font-bold bg-blue-500 p-2 rounded-sm" type="button" onclick="">Editar dados</button>
           </form>
         </div>
 

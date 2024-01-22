@@ -18,8 +18,12 @@ async function conjunto(){
 
 
 async function popularTabela(dadosConjunto) {
-    try {
 
+    var somaRenda = 0;
+    var somaDespesas = 0;
+    var valorInvestido = 1650;
+
+    try {
 
         document.getElementById('filtroMes').addEventListener('change', function () {
             
@@ -93,11 +97,31 @@ async function popularTabela(dadosConjunto) {
                 dadosConjunto[i].tipo.toLowerCase() === 'outro' ||
                 dadosConjunto[i].tipo.toLowerCase() === 'prêmios'
                 ) {
+                somaRenda += dadosConjunto[i].valor;
                 celulaValor.style.color = '#00FF00'; // Verde
             } else {
+                somaDespesas += dadosConjunto[i].valor;
                 celulaValor.style.color = '#FF0000'; // Vermelho
             }
         }
+
+        // ...
+
+        // Calcular a diferença entre renda e despesas
+        var diferenca = somaRenda - somaDespesas;
+
+        console.log('Soma Total Renda:', somaRenda.toFixed(2));
+        console.log('Soma Total Despesas:', somaDespesas.toFixed(2));
+        console.log('Diferença (Renda - Despesas):', diferenca.toFixed(2));
+
+        // Preencher os elementos HTML com os valores calculados
+        document.getElementById('valorConta').textContent = `R$${(somaRenda - somaDespesas).toFixed(2)}`;
+        document.getElementById('valorInvestido').textContent = `R$${valorInvestido.toFixed(2)}`;
+        document.getElementById('valorDespesas').textContent = `R$${somaDespesas.toFixed(2)}`;
+        document.getElementById('valorTotal').textContent = `R$${(diferenca + valorInvestido).toFixed(2)}`;
+
+
+
     } catch (error) {
         console.error('Erro ao popular a tabela:', error);
     }
@@ -208,21 +232,18 @@ async function excluirRegistro(id, tipo){
 function abrirModalEdicao(id, tipo, descricao, valor, data) {
     var formEdit = document.getElementById('formEdit');
 
-    document.getElementById('valor').value = valor;
-    document.getElementById('tipo').value = tipo;
-    document.getElementById('descricao').value = descricao;
-    document.getElementById('date').value = data;
+    document.getElementById('editValor').value = valor;
+    document.getElementById('editTipo').value = tipo;
+    document.getElementById('editDescricao').value = descricao;
+    document.getElementById('editDate').value = data;
 
-
-
-
-    formEdit.classList.remove('hidden');
+    formEdit.classList.toggle('hidden');
 
     document.getElementById('btnEditar').onclick = async function () {
-        var novoValor = document.getElementById('valor').value;
-        var novoTipo = document.getElementById('tipo').value;
-        var novaDescricao = document.getElementById('descricao').value;
-        var novaData = document.getElementById('date').value;
+        var novoValor = document.getElementById('editValor').value;
+        var novoTipo = document.getElementById('editTipo').value;
+        var novaDescricao = document.getElementById('editDescricao').value;
+        var novaData = document.getElementById('editDate').value;
 
         await editarRegistro(id, novoTipo, novaDescricao, novoValor, novaData);
 
@@ -248,7 +269,7 @@ function editarRegistro(id, tipo, descricao, valor, data){
     };
 
     fetch(url,{
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
