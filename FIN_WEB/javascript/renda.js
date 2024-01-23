@@ -13,16 +13,17 @@ function enviarRenda() {
         if(campo == null || campo.value.trim() == ''){
             var erro = true;
             var campoSpan = document.querySelector('#campoError');
-            campoSpan.innerText = 'Preencha todos os campos!'
-            campoSpan.classList.toggle('hidden');
+            //campoSpan.innerText = 'Preencha todos os campos!'
+            alert("Preencha todos os dados corretamente!")
+            //campoSpan.classList.toggle('hidden');
             break;
         }
     }
 
     if(!erro){
         var campoSpan = document.querySelector('#campoError');
-        campoSpan.innerText = '';
-        campoSpan.classList.add('hidden');
+        //campoSpan.innerText = '';
+        //campoSpan.classList.add('hidden');
 
         var url = adicionarUrlRenda;
         var formularioRenda = document.getElementById('formRenda');

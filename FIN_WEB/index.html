@@ -14,9 +14,8 @@
     <img class="w-2/12 rounded-lg" src="images/FinAppLogo-removebg-preview.png" alt="">
     <div class="flex justify-center w-2/3">
       <a class="text-white font-league text-2xl self-center mt-5 hover:underline underline-offset-8" href="index.html">Home</a>
-      <a class="text-white font-league text-2xl self-center mt-5 hover:underline underline-offset-8 ml-24" href="">Renda</a>
-      <a class="text-white font-league text-2xl self-center mt-5 hover:underline underline-offset-8 ml-24" href="">Despesas</a>
       <a class="text-white font-league text-2xl self-center mt-5 hover:underline underline-offset-8 ml-24" href="investimentos.html">Investimentos</a>
+      <a class="text-white font-league text-2xl self-center mt-5 hover:underline underline-offset-8 ml-24" href="">Desenvolvedores</a>
     </div>
   </header>
   <body class="bg-slate-100">
@@ -42,15 +41,58 @@
     <section class="items-start mt-0">
 
       <div class="flex justify-center p-4 m-5 rounded-lg shadow-xl bg-white">
-        <h1 class="text-2xl font-league font-bold text-black ml-2">Conta:</h1>
-        <h1 id="valorConta" class="text-2xl ml-3 font-league font-bold text-emerald-600">R$24.660,07</h1>
-        <h1 class="text-2xl font-league font-bold text-black ml-4">Investidos:</h1>
-        <h1 id="valorInvestido" class="text-2xl ml-3 font-league font-bold text-blue-950">R$16.770,00</h1>
-        <h1 class="text-2xl font-league font-bold text-black ml-4">Despesas:</h1>
-        <h1 id="valorDespesas" class="text-2xl ml-3 font-league font-bold text-red-600">R$14.469,30</h1>
-        <h1 class="text-2xl font-league font-bold text-black ml-4">Total:</h1>
-        <h1 id="valorTotal" class="text-2xl ml-3 font-league font-bold text-emerald-600">R$41.430,07</h1>
+
       </div>
+
+    </section>
+
+    <section class="items-start mt-0">
+
+      <div class="flex justify-start p-4 m-5 rounded-lg shadow-xl bg-white">
+
+        <div>
+          <div class="flex flex-row ml-2">
+            <img class="w-auto h-10" src="images/calendar.png" alt="">
+            <h1 class="ml-2 text-5xl font-league font-normal text-finGreen-0">Janeiro</h1>
+          </div>
+          <h1 class="text-xl font-league font-bold text-black ml-2">Receita Mensal:</h1>
+          <h1 id="" class="text-xl ml-2 font-league font-bold text-emerald-600">R$24.660,07</h1>
+          <h1 class="text-lg font-league font-bold text-black ml-2">Despesa Mensal:</h1>
+          <h1 id="" class="text-lg ml-2 font-league font-bold text-red-600">R$24.660,07</h1>
+        </div>
+        <div class="w-0.5 bg-green-600 rounded-lg mx-10"></div>
+        <div class="mr-4 w-60">
+          <h1 class="ml-2 text-5xl font-league font-normal text-finGreen-0">Saldo:</h1>
+          <h1 id="valorConta" class="text-4xl ml-2 font-league font-bold text-emerald-600">R$24.660,07</h1>
+          <h1 class="text-3xl font-league font-bold text-black ml-2">Despesas:</h1>
+          <h1 id="valorDespesas" class="text-3xl ml-2 font-league font-bold text-red-600">R$14.469,30</h1>
+        </div>
+        <h1 class="text-2xl self-end font-league font-bold text-black ml-2">Total:</h1>
+        <h1 id="valorTotal" class="self-end text-2xl ml-2 font-league font-bold text-emerald-600">R$41.430,07</h1>
+
+
+        <div class="w-0.5 bg-green-600 rounded-lg mx-10"></div>
+
+        <div class="flex h-fit">
+          <h1 class="text-xl font-league font-normal text-black mx-2">Mês anterior:</h1>
+          <select class="h-fit self-center border-emerald-600 rounded-md p-0 font-league text-xl text-finGreen-0" name="" id="">
+              <option value="1">Janeiro</option>
+              <option value="2">Fevereiro</option>
+              <option value="3">Março</option>
+              <option value="4">Abril</option>
+              <option value="5">Maio</option>
+              <option value="6">Junho</option>
+              <option value="7">Julho</option>
+              <option value="8">Agosto</option>
+              <option value="9">Setembro</option>
+              <option value="10">Outubro</option>
+              <option value="11">Novembro</option>
+              <option value="12">Dezembro</option>
+          </select>
+        </div>
+
+      </div>
+
 
     </section>
 
@@ -95,14 +137,13 @@
           </a>
         </div>
 
-        <span id="campoError" class="hidden Error-message text-white text-xl font-league bg-red-600 w-fit self-center p-2 rounded-lg"></span>
 
-        <div class="flex p-4 w-fit justify-center m-auto my-0">
-          <form class="form hidden" id="formRenda">
+        <div class="flex flex-col w-fit fixed self-center">
+          <form class="form hidden bg-green-50 p-4 rounded-md w-fit flex flex-col border-2 border-emerald-600" id="formRenda">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Valor:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="valor" name="valor" required>
+            <input class="w-full font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" type="number" id="valor" name="valor" required>
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Tipo:</label>
-            <select class="mx-3 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="tipo" required>
+            <select class=" font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="tipo" required>
               <option value="salário">Salário</option>
               <option value="bônus">Bonus</option>
               <option value="prêmios">Prêmios</option>
@@ -110,19 +151,19 @@
               <option value="outro">Outro</option>
             </select>
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Descrição:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-48" type="text" name="descricao" id="Descrição">
+            <input class="font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-48" type="text" name="descricao" id="Descrição">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Data:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-32" type="date" name="date" id="date" required>
+            <input class=" font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-full mb-4" type="date" name="date" id="date" required>
             <button class="btnEnviarRenda ml-2 text-white font-league font-bold bg-green-700 p-2 rounded-sm" type="button" onclick="enviarRenda()">Adicionar</button>
           </form>
         </div>
 
-        <div class="flex p-4 w-fit justify-center m-auto mt-0 mb-5">
-          <form class="form hidden" id="formDespesa">
+        <div class="flex flex-col w-fit fixed self-center">
+          <form class="form hidden bg-green-50 p-4 rounded-md w-fit flex flex-col border-2 border-emerald-600" id="formDespesa">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Valor:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="valor" name="valor" required>
+            <input class="font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-full" type="number" id="valor" name="valor" required>
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Tipo:</label>
-            <select class="mx-3 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="tipo" required>
+            <select class="font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="tipo" required>
               <option value="contas">Contas</option>
               <option value="dízimo">Dízimo</option>
               <option value="jogos">Jogos</option>
@@ -135,27 +176,32 @@
               <option value="outros">Outros</option>
             </select>
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Descrição:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-48" type="text" id="Descrição" name="descricao">
+            <input class="font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 wfull" type="text" id="Descrição" name="descricao">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Data:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-32" type="date" id="date" name="date" required>
+            <input class="font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-full mb-4" type="date" id="date" name="date" required>
             <button class="btnEnviarDespesa ml-2 text-white font-league font-bold bg-red-700 p-2 rounded-sm" type="button" onclick="enviarDespesa()">Adicionar</button>
-            
           </form>
         </div>
 
-        <div class="flex p-4 w-fit justify-center m-auto mt-0 mb-5">
-          <form class="form hidden" id="formEdit">
+        
+
+        <div class="flex flex-col w-fit fixed self-center">
+          <form class="form hidden bg-green-50 p-4 rounded-md w-fit flex flex-col border-2 border-emerald-600" id="formEdit">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Valor:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-20" type="number" id="editValor" name="valor" required>
+            <input class=" font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-full" type="number" id="editValor" name="valor" required>
             <label class="text-finGreen-0 text-xl font-league font-bold" for="" id="valor">Tipo:</label>
-            <input class="mx-3 w-1/12 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="editTipo" readonly required>
+            <input class="font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="tipo" id="editTipo" readonly required>
             <label class="text-finGreen-0 text-xl font-league font-bold" for="" id="descricao">Descrição:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-48" type="text" id="editDescricao" name="descricao">
+            <input class="font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-full" type="text" id="editDescricao" name="descricao">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Data:</label>
-            <input class="mx-2 font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-32" type="date" id="editDate" name="date" required>
+            <input class="font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-full mb-4" type="date" id="editDate" name="date" required>
             <button id="btnEditar" class="ml-2 text-white font-league font-bold bg-blue-500 p-2 rounded-sm" type="button" onclick="">Editar dados</button>
           </form>
         </div>
+
+
+        <!--<span id="campoError" class="z-1 fixed hidden Error-message text-white text-xl font-league bg-red-600 w-fit self-center p-2 rounded-lg"></span>-->
+
 
         <div class="rounded-lg shadow-xl w-fit p-2 ml-6 bg-green-50">
           <button class="font-league text-finGreen-0 font-bold">Filtrar: <select class="font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" name="" id="filtroMes">

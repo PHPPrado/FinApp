@@ -116,7 +116,6 @@ async function popularTabela(dadosConjunto) {
 
         // Preencher os elementos HTML com os valores calculados
         document.getElementById('valorConta').textContent = `R$${(somaRenda - somaDespesas).toFixed(2)}`;
-        document.getElementById('valorInvestido').textContent = `R$${valorInvestido.toFixed(2)}`;
         document.getElementById('valorDespesas').textContent = `R$${somaDespesas.toFixed(2)}`;
         document.getElementById('valorTotal').textContent = `R$${(diferenca + valorInvestido).toFixed(2)}`;
 
