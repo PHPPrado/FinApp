@@ -52,6 +52,7 @@ function enviarDespesa() {
             throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
         }
         alert("Dados enviados com sucesso!");
+        formularioDespesa.classList.toggle('hidden')
         conjunto();
         return response.json();
         
