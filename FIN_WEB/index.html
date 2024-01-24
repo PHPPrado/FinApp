@@ -53,28 +53,64 @@
         <div>
           <div class="flex flex-row ml-2">
             <img class="w-auto h-10" src="images/calendar.png" alt="">
-            <h1 class="ml-2 text-5xl font-league font-normal text-finGreen-0">Janeiro</h1>
+            <h1 id="mesAtual" class="ml-2 text-5xl font-league font-normal text-finGreen-0">Março</h1>
           </div>
-          <h1 class="text-xl font-league font-bold text-black ml-2">Receita Mensal:</h1>
-          <h1 id="" class="text-xl ml-2 font-league font-bold text-emerald-600">R$24.660,07</h1>
-          <h1 class="text-lg font-league font-bold text-black ml-2">Despesa Mensal:</h1>
-          <h1 id="" class="text-lg ml-2 font-league font-bold text-red-600">R$24.660,07</h1>
+          <h1 class="text-xl font-league font-normal text-black ml-2">Receita Mensal:</h1>
+          <h1 id="rendaMes" class="text-xl ml-2 font-league font-normal text-emerald-600">+R$24.660,07</h1>
+          <h1 class="text-lg font-league font-normal text-black ml-2">Despesa Mensal:</h1>
+          <h1 id="despesaMes" class="text-lg ml-2 font-league font-normal text-red-600">-R$24.660,07</h1>
         </div>
         <div class="w-0.5 bg-green-600 rounded-lg mx-10"></div>
-        <div class="mr-4 w-60">
-          <h1 class="ml-2 text-5xl font-league font-normal text-finGreen-0">Saldo:</h1>
-          <h1 id="valorConta" class="text-4xl ml-2 font-league font-bold text-emerald-600">R$24.660,07</h1>
-          <h1 class="text-3xl font-league font-bold text-black ml-2">Despesas:</h1>
-          <h1 id="valorDespesas" class="text-3xl ml-2 font-league font-bold text-red-600">R$14.469,30</h1>
+        <div class="mr-4">
+          <div class="shadow-md rounded-lg p-2">
+            <h1 class=" text-xl font-league font-normal text-center text-finGreen-0">Saldo</h1>
+            <h1 id="valorConta" class="text-xl  text-center font-league font-normal text-emerald-600">R$24.660,07</h1>
+          </div>
+          <div class="shadow-md rounded-lg p-2 mt-2">
+            <h1 class="text-xl font-league font-normal text-center text-finGreen-0 ">Despesas</h1>
+            <h1 id="valorDespesas" class="text-xl  text-center font-league font-normal text-red-600">R$14.469,30</h1>
+          </div>
         </div>
-        <h1 class="text-2xl self-end font-league font-bold text-black ml-2">Total:</h1>
-        <h1 id="valorTotal" class="self-end text-2xl ml-2 font-league font-bold text-emerald-600">R$41.430,07</h1>
 
+        <div class="">
+          <div class="shadow-md rounded-lg p-2">
+            <h1 class=" text-xl font-league font-normal text-center text-finGreen-0">Investido</h1>
+            <h1 id="valorInvestido" class="text-xl  text-center font-league font-normal text-blue-800">R$24.660,07</h1>
+          </div>
+          <div class="shadow-md rounded-lg p-2 mt-2">
+            <h1 class="text-xl font-league font-normal text-center text-finGreen-0 ">Total</h1>
+            <h1 id="valorTotal" class="text-xl  text-center font-league font-normal text-emerald-600">R$14.469,30</h1>
+          </div>
+        </div>
+
+        <div class="w-0.5 bg-green-600 rounded-lg mx-10"></div>
+
+        <div class="mr-4">
+          <div class="shadow-md rounded-lg p-2">
+            <h1 class=" text-xl font-league font-normal text-center text-finGreen-0">2024</h1>
+            <h1 id="valorConta" class="text-xl  text-center font-league font-normal text-emerald-600">+R$24.660,07</h1>
+          </div>
+          <div class="shadow-md rounded-lg p-2 mt-2">
+            <h1 class="text-xl font-league font-normal text-center text-finGreen-0 ">Média gastos</h1>
+            <h1 id="valorDespesas" class="text-xl  text-center font-league font-normal text-red-600">-R$836,40</h1>
+          </div>
+        </div>
+
+        <div class="">
+          <div class="shadow-md rounded-lg p-2">
+            <h1 class=" text-xl font-league font-normal text-center text-finGreen-0">Salário</h1>
+            <h1 id="valorInvestido" class="text-xl  text-center font-league font-normal text-emerald-600">R$4300.00</h1>
+          </div>
+          <div class="shadow-md rounded-lg p-2 mt-2">
+            <h1 class="text-xl font-league font-normal text-center text-finGreen-0 ">Não sei</h1>
+            <h1 id="valorTotal" class="text-xl  text-center font-league font-normal text-emerald-600">Não sei</h1>
+          </div>
+        </div>
 
         <div class="w-0.5 bg-green-600 rounded-lg mx-10"></div>
 
         <div class="flex h-fit">
-          <h1 class="text-xl font-league font-normal text-black mx-2">Mês anterior:</h1>
+          <h1 class="text-xl font-league font-normal text-black">Mês anterior:</h1>
           <select class="h-fit self-center border-emerald-600 rounded-md p-0 font-league text-xl text-finGreen-0" name="" id="">
               <option value="1">Janeiro</option>
               <option value="2">Fevereiro</option>
@@ -90,6 +126,8 @@
               <option value="12">Dezembro</option>
           </select>
         </div>
+
+        
 
       </div>
 
@@ -138,7 +176,7 @@
         </div>
 
 
-        <div class="flex flex-col w-fit fixed self-center">
+        <div class="flex flex-col w-fit fixed self-center -mt-48">
           <form class="form hidden bg-green-50 p-4 rounded-md w-fit flex flex-col border-2 border-emerald-600" id="formRenda">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Valor:</label>
             <input class="w-full font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50" type="number" id="valor" name="valor" required>
@@ -158,7 +196,7 @@
           </form>
         </div>
 
-        <div class="flex flex-col w-fit fixed self-center">
+        <div class="flex flex-col w-fit fixed self-center -mt-48">
           <form class="form hidden bg-green-50 p-4 rounded-md w-fit flex flex-col border-2 border-emerald-600" id="formDespesa">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Valor:</label>
             <input class="font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-full" type="number" id="valor" name="valor" required>
@@ -185,7 +223,7 @@
 
         
 
-        <div class="flex flex-col w-fit fixed self-center">
+        <div class="flex flex-col w-fit fixed self-center -mt-48">
           <form class="form hidden bg-green-50 p-4 rounded-md w-fit flex flex-col border-2 border-emerald-600" id="formEdit">
             <label class="text-finGreen-0 text-xl font-league font-bold" for="">Valor:</label>
             <input class=" font-normal border-2 rounded-sm border-finGreen-0 p-0 bg-green-50 w-full" type="number" id="editValor" name="valor" required>

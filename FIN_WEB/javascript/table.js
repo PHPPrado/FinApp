@@ -10,6 +10,8 @@ async function conjunto(){
         await getDespesas();
         await getRenda();
 
+        calcularFinanceiro(renda, despesas)
+
         var dadosConjunto = renda.concat(despesas);
         dadosConjunto.sort((a, b) => new Date(b.data) - new Date(a.data));
 
@@ -115,8 +117,9 @@ async function popularTabela(dadosConjunto) {
         console.log('Diferença (Renda - Despesas):', diferenca.toFixed(2));
 
         // Preencher os elementos HTML com os valores calculados
-        document.getElementById('valorConta').textContent = `R$${(somaRenda - somaDespesas).toFixed(2)}`;
-        document.getElementById('valorDespesas').textContent = `R$${somaDespesas.toFixed(2)}`;
+        document.getElementById('valorConta').textContent = `R$${(somaRenda - valorInvestido - somaDespesas).toFixed(2)}`;
+        document.getElementById('valorDespesas').textContent = `-R$${somaDespesas.toFixed(2)}`;
+        document.getElementById('valorInvestido').textContent = `R$${valorInvestido.toFixed(2)}`;
         document.getElementById('valorTotal').textContent = `R$${(diferenca + valorInvestido).toFixed(2)}`;
 
 
@@ -295,5 +298,46 @@ function editarRegistro(id, tipo, descricao, valor, data){
 }
 
 
+function getMonthName() {
+    const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    const currentDate = new Date();
+    return months[currentDate.getMonth()];
+    
+  }
+  
+  // Função para calcular a receita e despesa mensal considerando apenas o mês atual
+  function calcularFinanceiro(renda, despesas) {
+    const currentDate = new Date(); // Adicionando esta linha para obter a data atual
+    const mesAtual = getMonthName();
+    document.getElementById("mesAtual").textContent = mesAtual;
+    console.log("Mês Atual:", mesAtual);
+  
+    const receitasDoMes = renda.filter(item => {
+      const [ano, mes] = item.data.split('-');
+      console.log("Item de Renda:", item);
+      console.log("Ano e Mês:", ano, mes);
+      return parseInt(mes, 10) === (currentDate.getMonth() + 1) && parseInt(ano, 10) === currentDate.getFullYear();
+    });
+  
+    const despesasDoMes = despesas.filter(despesa => {
+      const [ano, mes] = despesa.data.split('-');
+      console.log("Item de Despesa:", despesa);
+      console.log("Ano e Mês:", ano, mes);
+      return parseInt(mes, 10) === (currentDate.getMonth() + 1) && parseInt(ano, 10) === currentDate.getFullYear();
+    });
+  
+    const receitaMensal = receitasDoMes.reduce((total, item) => total + item.valor, 0);
+    const despesaMensal = despesasDoMes.reduce((total, despesa) => total + despesa.valor, 0);
+  
+    // Atualizar o HTML com os valores calculados
+    console.log("Receita Mensal:", receitaMensal);
+    console.log("Despesa Mensal:", despesaMensal);
+  
+    document.getElementById("rendaMes").textContent = `+R$${receitaMensal.toFixed(2)}`;
+    document.getElementById("despesaMes").textContent = `-R$${despesaMensal.toFixed(2)}`;
+  }
+
+
 // Chame a função principal
 conjunto();
+
