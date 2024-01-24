@@ -10,7 +10,8 @@ async function conjunto(){
         await getDespesas();
         await getRenda();
 
-        calcularFinanceiro(renda, despesas)
+        calcularFinanceiro(renda, despesas);
+        resumoGeral(renda, despesas)
 
         var dadosConjunto = renda.concat(despesas);
         dadosConjunto.sort((a, b) => new Date(b.data) - new Date(a.data));
@@ -21,9 +22,7 @@ async function conjunto(){
 
 async function popularTabela(dadosConjunto) {
 
-    var somaRenda = 0;
-    var somaDespesas = 0;
-    var valorInvestido = 1650;
+
 
     try {
 
@@ -99,10 +98,9 @@ async function popularTabela(dadosConjunto) {
                 dadosConjunto[i].tipo.toLowerCase() === 'outro' ||
                 dadosConjunto[i].tipo.toLowerCase() === 'prêmios'
                 ) {
-                somaRenda += dadosConjunto[i].valor;
+                
                 celulaValor.style.color = '#00FF00'; // Verde
             } else {
-                somaDespesas += dadosConjunto[i].valor;
                 celulaValor.style.color = '#FF0000'; // Vermelho
             }
         }
@@ -335,6 +333,52 @@ function getMonthName() {
   
     document.getElementById("rendaMes").textContent = `+R$${receitaMensal.toFixed(2)}`;
     document.getElementById("despesaMes").textContent = `-R$${despesaMensal.toFixed(2)}`;
+  }
+
+
+  function resumoGeral(renda, despesas){
+
+    
+    var somaRenda = 0;
+    var somaDespesas = 0;
+    var somaDespesasAno = 0;
+    var valorInvestido = 1650;
+
+    for (var i = 0; i < renda.length; i++) {
+        somaRenda += renda[i].valor;
+    }
+    for (var i = 0; i < despesas.length; i++) {
+        somaDespesas += despesas[i].valor;
+    }
+
+    // Filtrar as despesas do ano atual
+    var despesasDoAnoAtual = despesas.filter(function (despesa) {
+        var anoDespesa = new Date(despesa.data).getFullYear();
+        var anoAtual = new Date().getFullYear();
+        return anoDespesa === anoAtual;
+    });
+
+    for (var i = 0; i < despesasDoAnoAtual.length; i++) {
+        somaDespesasAno += despesasDoAnoAtual[i].valor;
+    }    
+
+    // Calcular a diferença entre renda e despesas
+    var diferenca = somaRenda - somaDespesas;
+
+    var dataVar = new Date();
+    var anoAtual = dataVar.getFullYear();
+
+    console.log('Soma Total Renda:', somaRenda.toFixed(2));
+    console.log('Soma Total Despesas:', somaDespesas.toFixed(2));
+    console.log('Diferença (Renda - Despesas):', diferenca.toFixed(2));
+
+    // Preencher os elementos HTML com os valores calculados
+    document.getElementById('valorConta').textContent = `R$${(somaRenda - valorInvestido - somaDespesas).toFixed(2)}`;
+    document.getElementById('textDespesasResumo').textContent = `Despesas ${anoAtual}`;
+    document.getElementById('valorDespesas').textContent = `-R$${somaDespesasAno.toFixed(2)}`;
+    document.getElementById('valorInvestido').textContent = `R$${valorInvestido.toFixed(2)}`;
+    document.getElementById('valorTotal').textContent = `R$${(diferenca + valorInvestido).toFixed(2)}`;
+
   }
 
 
